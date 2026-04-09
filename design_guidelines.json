@@ -1,0 +1,83 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 4: Swiss & High-Contrast",
+  "design_philosophy": "Modern and minimalist event management SaaS. Emphasizes authority, clarity, and function-first design with high-contrast elements and generous whitespace. Brutalist structural elements paired with highly legible typography. Focus on the 'Bento Grid' for dashboards and clean dense lists for tasks.",
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F4F4F5",
+    "surface_hover": "#E4E4E7",
+    "border": "#E5E5E5",
+    "text_primary": "#09090B",
+    "text_secondary": "#71717A",
+    "brand_primary": "#F04D23",
+    "brand_primary_hover": "#D93D1A",
+    "status_antes": "#94A3B8",
+    "status_durante": "#F59E0B",
+    "status_apos": "#10B981"
+  },
+  "typography": {
+    "font_headings": "Outfit, sans-serif",
+    "font_body": "Manrope, sans-serif",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-bold text-neutral-900",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-semibold text-neutral-900",
+    "h3": "text-xl sm:text-2xl font-medium text-neutral-900",
+    "body": "text-base text-neutral-700 leading-relaxed",
+    "overline": "text-xs text-neutral-500 uppercase tracking-[0.2em] font-bold"
+  },
+  "layout": {
+    "spacing": "Generous Spacing System: Use p-6, p-8, p-12 for containers. Dense spacing (p-3, p-4) only inside table rows.",
+    "dashboard_grid": "Bento Control Room: grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "radius": "rounded-sm",
+    "shadows": {
+      "card": "shadow-sm",
+      "modal": "shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+    }
+  },
+  "components": {
+    "buttons": "Flat, sharp edges (rounded-sm). Primary is #F04D23. Secondary is outline with border-neutral-200. High contrast focus rings.",
+    "cards": "Flat solid surfaces with 1px border-neutral-200, no drop-shadow by default.",
+    "checklist_view": "Tabs for phases. Dense list format (border-collapse). Each row is border-b border-neutral-100.",
+    "inputs": "Shadcn defaults customized to rounded-sm. Focus state: ring-2 ring-brand_primary/20 border-brand_primary.",
+    "collaboration_avatars": "Small overlapping circles (w-8 h-8) in header top-right, 2px white border."
+  },
+  "interactions": {
+    "hover": "Subtle background shifts (hover:bg-neutral-50) for rows. Buttons -translate-y-[1px] with shadow-md.",
+    "focus": "High contrast outline for accessibility."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "stroke": "1.5px"
+  },
+  "testing": {
+    "requirement": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case (e.g., data-testid='add-task-button')."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1739732119808-0aeef88d14d9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhYnN0cmFjdCUyMG1pbmltYWxpc3QlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzc1NzU1NTczfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Modern architecture for landing or login abstraction."
+    },
+    "team_member_1": {
+      "url": "https://images.unsplash.com/photo-1762522926157-bcc04bf0b10a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3NTc0ODg4NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Team member avatar 1"
+    },
+    "team_member_2": {
+      "url": "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3NTc0ODg4NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Team member avatar 2"
+    },
+    "team_member_3": {
+      "url": "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3NTc0ODg4NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Team member avatar 3"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install and configure 'lucide-react' for icons. Do NOT use generic text as icons.",
+    "Add 'Outfit' and 'Manrope' to fonts via Google Fonts or standard imports.",
+    "Implement standard layout: Sidebar for main navigation (Dashboard, Checklists, Templates, Reports) and top header for global actions & real-time collaboration avatars.",
+    "Build the IMPACTO Event Dashboard with the Bento grid pattern, utilizing large typography for stats.",
+    "For the checklist module, use Tabs ('Antes', 'Durante', 'Após'). Inside each tab, list categories and tasks. Do NOT wrap every task in a bulky Shadcn Card. Use a flat border-collapse list structure.",
+    "Include a Shadcn DatePicker/Calendar for task deadlines.",
+    "Add a Modal/Dialog for assigning members to a task.",
+    "Add progress bars matching the status colors for event completion overview.",
+    "The SaaS has NO auth required, so start the user directly in an 'Open Access' screen containing a selection/creation of Checklists, featuring the hero_background subtly."
+  ]
+}
