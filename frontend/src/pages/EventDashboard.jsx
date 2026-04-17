@@ -99,7 +99,8 @@ export default function EventDashboard() {
 
     useEffect(() => {
         loadData();
-    }, [loadData]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [eventId]);
 
     const toggleCategory = (categoryId) => {
         setExpandedCategories(prev => ({

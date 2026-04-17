@@ -162,11 +162,11 @@ async def create_event(event_data: EventCreate):
 @api_router.put("/events/{event_id}", response_model=Event)
 async def update_event(event_id: str, event_data: EventUpdate):
     update_dict = {k: v for k, v in event_data.model_dump().items() if v is not None}
-    if not update_dict:
+    if len(update_dict) == 0:
         raise HTTPException(status_code=400, detail="No fields to update")
     await db.events.update_one({"id": event_id}, {"$set": update_dict})
     event = await db.events.find_one({"id": event_id}, {"_id": 0})
-    if not event:
+    if event is None:
         raise HTTPException(status_code=404, detail="Event not found")
     return event
 
@@ -231,11 +231,11 @@ async def create_task(event_id: str, task_data: TaskCreate):
 @api_router.put("/events/{event_id}/tasks/{task_id}", response_model=Task)
 async def update_task(event_id: str, task_id: str, task_data: TaskUpdate):
     update_dict = {k: v for k, v in task_data.model_dump().items() if v is not None}
-    if not update_dict:
+    if len(update_dict) == 0:
         raise HTTPException(status_code=400, detail="No fields to update")
     await db.tasks.update_one({"id": task_id, "event_id": event_id}, {"$set": update_dict})
     task = await db.tasks.find_one({"id": task_id, "event_id": event_id}, {"_id": 0})
-    if not task:
+    if task is None:
         raise HTTPException(status_code=404, detail="Task not found")
     return task
 
